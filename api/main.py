@@ -1,4 +1,5 @@
 from fastapi import FastAPI 
+from api.routes import auth 
 
 app = FastAPI(
     docs_url='/', 
@@ -17,3 +18,5 @@ async def testing_route():
         "Message": "Testing if the route is working fine or not",
         "data":{"print":"working ... .. ."}
     }
+
+app.include_router(auth.router)
